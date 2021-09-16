@@ -103,3 +103,12 @@ code {
 ::-webkit-scrollbar-thumb:hover {
   background: #1f507a; 
 }
+
+.profile {
+  color: $pa-white;
+  float: right;
+  height: 60px;
+  line-height: 40px;
+  text-decoration: none;
+  color: grey;
+}

@@ -1,23 +1,22 @@
-
-import {Search} from "../types/GlobalTypes"
-
-
 import React, { createContext, useState } from "react";
-import { Link } from 'react-navi'
+import { Link } from "react-navi";
 
+import { Search, TableData, Column } from "../types/GlobalTypes";
 export const GlobalContext = createContext<any | null>(null);
 
 export const GlobalProvider = (props: any) => {
   const [search, setsearch] = useState<Search>();
-  const [loading, setLoading]=useState(true)
-  const [tableData, setTabledata] = useState([]);
-  const [filteredData,setFilteredData] = useState(tableData);
-  const [pageSize, setPagesize] = useState(5);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [tableData, setTabledata] = useState<TableData>();
+  const [filteredData, setFilteredData] = useState(tableData);
+  const [pageSize, setPagesize] = useState<number>(5);
   const [col, setCol] = useState([
     {
       title: "Company Name",
       dataIndex: "company_name",
-      render: (text:string, record:any) => <Link href={`/view/${record.id}`}>{text}</Link>
+      render: (text: string, record: any) => (
+        <Link href={`/view/${record.id}`}>{text}</Link>
+      ),
     },
     {
       title: "Currency Code",
@@ -41,17 +40,15 @@ export const GlobalProvider = (props: any) => {
     },
   ]);
 
-  
-
   return (
     <GlobalContext.Provider
       value={{
         searchApp: [search, setsearch],
         loader: [loading, setLoading],
         table: [tableData, setTabledata],
-        searchedData: [filteredData,setFilteredData],
+        searchedData: [filteredData, setFilteredData],
         pageSizeData: [pageSize, setPagesize],
-        ColumnData: [col, setCol]
+        ColumnData: [col, setCol],
       }}
     >
       {props.children}

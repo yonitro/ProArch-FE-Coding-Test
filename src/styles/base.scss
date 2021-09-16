@@ -3,7 +3,7 @@ body {
     Helvetica Neue, sans-serif;
   font-size: 14px;
   line-height: 1.43;
-  color: #484848;
+  color: #333333;
 
   margin: 0;
   -webkit-font-smoothing: antialiased;
@@ -43,7 +43,7 @@ code {
   bottom: 0;
   right: 0;
   margin: auto;
-  color: #10293f;
+  color: $pa-blue;
   font-weight: bold;
 }
 
@@ -61,12 +61,12 @@ code {
   }
   span {
     font-weight: 600;
-    color: #10293f;
+    color: $pa-blue;
   }
    .goback {
     padding: 5px 20px;
-    background: #10293f;
-    color: #fff;
+    background: $pa-blue;
+    color: $pa-white;
     /* float: right; */
     margin: 20px 0;
     /* display: block; */
@@ -79,7 +79,7 @@ code {
 .singleViewTitle {
   font-size: 16px;
   font-weight: bold;
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid #333;
   padding: 0px 0 20px 0;
   margin: 0 0 20px 0;
 }
@@ -96,7 +96,7 @@ code {
  
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #10293f; 
+  background: $pa-blue; 
 }
 
 /* Handle on hover */

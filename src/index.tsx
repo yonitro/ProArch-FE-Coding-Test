@@ -26,12 +26,12 @@ const routes = mount({
     view: <SingleView />,
   }),
   "/login": route({
-    title: "Login",
+    title: "Login Page",
     view: <Login />,
   }),
   "/profile": withAuthentication(
     route({
-      title: "Profile",
+      title: "Profile Page",
       view: <Profile />,
     })
   ),

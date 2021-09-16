@@ -1,7 +1,7 @@
 import React, { createContext, useState } from "react";
 import { Link } from "react-navi";
 
-import { Search, TableData, Column } from "../types/GlobalTypes";
+import { Search, TableData } from "../types/GlobalTypes";
 export const GlobalContext = createContext<any | null>(null);
 
 export const GlobalProvider = (props: any) => {

@@ -1,12 +1,49 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./styles/index.scss";
-import App from "./components/App/App";
-import * as serviceWorker from "./serviceWorker";
+import { mount, route, lazy } from 'navi'
+import React, { Suspense } from 'react'
+import ReactDOM from 'react-dom'
+import { Router, View } from 'react-navi'
 
-ReactDOM.render(<App />, document.getElementById("root"));
+import { withAuthentication } from "./api/authenticatedRoute";
+//import Landing from './components/pages/Landing'
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+import Layout from './components/pages/Layout'
+import Login from './components/pages/Login'
+import Profile from './components/pages/Profile'
+import Spinner from './components/widgets/Spinner'
+import SingleView from './components/pages/SingleView'
+import './styles/index.scss';
+
+//localStorage.setItem("data_token_tookit","XYZ-ABC-DEF")
+const Landing = React.lazy(() => import('./components/pages/Landing')); 
+const routes =
+  mount({
+    '/': route({
+      title: "Landing Page",     
+      view: <Landing />,
+    }),
+    '/view/:id': route({
+      title: "Single View",     
+      view: <SingleView />,
+    }),
+    '/login': route({
+      title: "Login",     
+      view: <Login />,
+    }),
+    "/profile": withAuthentication(
+      route({
+        title: "Profile",
+        view: <Profile />,
+      })
+    ),
+  })
+
+ReactDOM.render(
+  <Router routes={routes} context={{ token: localStorage.getItem("data_token_tookit") }}>
+    <Layout>
+      <Suspense fallback={<Spinner/>}>
+        <View />
+      </Suspense>
+    </Layout>
+  </Router>,
+  document.getElementById('root')
+)

@@ -1,0 +1,9 @@
+.dataTable{    
+    margin: 20px;
+    background: $pa-white;
+    /* width: 100%; */
+    margin: 0px 30px;  
+    box-sizing: border-box;
+    min-height: calc(100vh - #{$header-height});
+    padding: 20px;
+}

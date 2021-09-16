@@ -1,18 +1,14 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link, useCurrentRoute } from "react-navi";
+import { Link } from "react-navi";
 
 import { GlobalContext } from "../../context/GlobalContext";
 
 export default function SingleView() {
-  const { searchApp, loader, table, searchedData, pageSizeData, ColumnData } =
-    useContext(GlobalContext);
-  const [loading, setLoading] = loader;
-  const [tableData, setTabledata] = table;
-  const [filteredData, setFilteredData] = searchedData;
-  const [pageSize, setPagesize] = pageSizeData;
-  const [col, setCol] = ColumnData;
+  const { table } = useContext(GlobalContext);
+
+  const [tableData] = table;
+
   const [id, setId] = useState(0);
-  const [singleView, setSingleView] = useState({});
 
   //Lets change Page
 
@@ -26,7 +22,7 @@ export default function SingleView() {
 
   return (
     <div className="singleViewCard">
-        <div className="singleViewTitle">Company Details</div>
+      <div className="singleViewTitle">Company Details</div>
       <div className="singleView">
         Company Name: <span>{tableData[id].company_name}</span>
       </div>
@@ -45,7 +41,9 @@ export default function SingleView() {
       <div className="singleView">
         City: <span>{tableData[id].city}</span>
       </div>
-      <Link className="goback" href={`/`}>&lt;&lt; Go Back</Link>
+      <Link className="goback" href={`/`}>
+        &lt;&lt; Go Back
+      </Link>
     </div>
   );
 }

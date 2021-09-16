@@ -7,7 +7,7 @@ const instance = axios.create({
   },
 });
 
-export default {
+const ServicesApi = {
   getData: (p: string) =>
     instance({
       method: "GET",
@@ -16,7 +16,7 @@ export default {
       transformResponse: [
         function (data) {
           // Do whatever you want to transform the data
-          console.log("Transforming data...");
+          
           const json = JSON.parse(data);
           return json;
         },
@@ -35,3 +35,4 @@ export default {
       },
     }),
 };
+export default ServicesApi;

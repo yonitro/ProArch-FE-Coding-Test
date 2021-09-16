@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import { Link, useNavigation } from "react-navi";
+import React from "react";
+import { useNavigation } from "react-navi";
 
 export default function Error() {
   const navigation = useNavigation();
@@ -9,7 +9,7 @@ export default function Error() {
   return (
     <div>
       We got an Error.
-      <a href="" onClick={goToHome}>
+      <a href="#/" onClick={goToHome}>
         <i className="fas fa-home home-icon"></i>Home
       </a>
     </div>

@@ -5,11 +5,7 @@ import { Header } from "../Header/Header";
 
 import Error from "./Error";
 
-interface BusyIndicatorProps extends React.HTMLAttributes<any> {
-  color?: string;
-  delayMs?: number;
-  isBusy?: boolean;
-}
+
 interface IProps {
   children: ReactNode;
   // any other props that come into the component

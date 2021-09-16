@@ -1,35 +1,32 @@
-import React, { useContext, useEffect, useState } from "react";
-import { Link, useCurrentRoute } from "react-navi";
+import React, { useContext, useEffect } from "react";
+
 import ServicesApi from "../../api/services";
 import { GlobalContext } from "../../context/GlobalContext";
-import {
-
-  Table,
-
-} from "antd";
+import { Table } from "antd";
 import "antd/dist/antd.css";
 export default function Landing() {
-  const { searchApp, loader, table, searchedData, pageSizeData, ColumnData } = useContext(GlobalContext);
-  const [loading, setLoading]=loader;
-  const [tableData, setTabledata] =table;
-  const [filteredData,setFilteredData] = searchedData;
+  const { loader, table, searchedData, pageSizeData, ColumnData } =
+    useContext(GlobalContext);
+  const [loading, setLoading] = loader;
+  const [tableData, setTabledata] = table;
+  const [filteredData, setFilteredData] = searchedData;
   const [pageSize, setPagesize] = pageSizeData;
-  const [col, setCol] =ColumnData
-  
+  const [col] = ColumnData;
+
   //Lets change Page
   const onPaginationChange = (page: any, newPageSize: any) => {
     setPagesize(newPageSize);
   };
 
-  const searchTable = (event:any) =>{
+  const searchTable = (event: any) => {
     let value = event.target.value.toLowerCase();
     let result = [];
-    console.log(value);
-    result = tableData.filter((data:any) => {
-    return data.company_name.toLowerCase().search(value) != -1;
+
+    result = tableData.filter((data: any) => {
+      return data.company_name.toLowerCase().search(value) !== -1;
     });
     setFilteredData(result);
-  }
+  };
 
   // useEffect as ComponentWillMount
   useEffect(() => {
@@ -41,22 +38,29 @@ export default function Landing() {
     fetchData()
       .catch((e) => {})
       .then((data) => {
-        if (data != undefined) {
+        if (data !== undefined) {
           //do something
           setTabledata(data);
           setFilteredData(data);
-          setLoading(false)
+          setLoading(false);
         } else {
           //do something else
         }
       });
+    // eslint-disable-next-line
   }, []);
   return (
     <div className="dataTable">
-      <input type="text" onChange={(event) =>searchTable(event)} placeholder="Search Company "/>
-     
+      <div className="companyDetails">Companies List</div>
+      <input
+        type="text"
+        onChange={(event) => searchTable(event)}
+        placeholder="Search Company "
+        className="search"
+      />
+
       <Table
-      rowKey={(record:any) => record.id}
+        rowKey={(record: any) => record.id}
         columns={col}
         dataSource={filteredData}
         loading={loading}
@@ -67,7 +71,6 @@ export default function Landing() {
           pageSizeOptions: ["5", "10", "25", "50", "100"],
           onChange: onPaginationChange,
         }}
-       
       />
     </div>
   );

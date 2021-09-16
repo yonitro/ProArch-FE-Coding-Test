@@ -1,7 +1,5 @@
 import React from "react";
-import Logo from "../../images/pssroarch-logo-no-icon.png";
-
-
+import Logo from "../../styles/images/pssroarch-logo-no-icon.png";
 
 export const Header: React.FC = () => {
   return (

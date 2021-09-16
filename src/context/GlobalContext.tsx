@@ -2,9 +2,8 @@
 import {Search} from "../types/GlobalTypes"
 
 
-import { prependOnceListener } from "process";
-import React, { createContext, useEffect, useState } from "react";
-import { Link, useCurrentRoute } from 'react-navi'
+import React, { createContext, useState } from "react";
+import { Link } from 'react-navi'
 
 export const GlobalContext = createContext<any | null>(null);
 

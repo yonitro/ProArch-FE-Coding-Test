@@ -84,3 +84,22 @@ code {
   margin: 0 0 20px 0;
 }
 }
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #69ba9a; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #10293f; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #1f507a; 
+}

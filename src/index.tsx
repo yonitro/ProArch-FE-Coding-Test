@@ -1,4 +1,4 @@
-import { mount, route, lazy } from 'navi'
+import { mount, route } from 'navi'
 import React, { Suspense } from 'react'
 import ReactDOM from 'react-dom'
 import { Router, View } from 'react-navi'

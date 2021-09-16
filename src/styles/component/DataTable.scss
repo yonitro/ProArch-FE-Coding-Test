@@ -6,4 +6,22 @@
     box-sizing: border-box;
     min-height: calc(100vh - #{$header-height});
     padding: 20px;
+    .companyDetails {
+        height: 60px;
+        font-size: 31px;
+        font-weight: bold;
+        margin: 0 0 30px 0;
+        border-bottom: 10px solid #fafafa;
+        padding: 0 0 70px 0;
+        color: #10293f;
+    }
+    .search {
+        color: #10293f;
+        padding: 10px;
+        margin: 0 0 30px 0;
+        border: 1px solid grey;
+    }
+    table tr td{
+        color: #333333
+    }
 }
